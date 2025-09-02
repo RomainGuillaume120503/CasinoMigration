@@ -3,7 +3,7 @@ import TokenService from '@/services/token.service';
 import router from '@/routers';
 
 const api = axios.create({
-  baseURL: 'https://localhost:7157/api/v1/',
+  baseURL: 'https://localhost:5084/api/v1/',
   headers: {
     'Content-Type': 'application/json',
   },
