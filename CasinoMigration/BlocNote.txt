@@ -1,0 +1,16 @@
+DOCKER
+docker run --name Casino -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgress -p 5432:5432 -d postgres
+
+
+Migration
+pour windows
+Add-Migration InitialCreate -OutputDir "./DAL/Migrations"
+
+pour arch 
+    installation
+        sudo pacman -S dotnet-sdk
+        dotnet tool install --global dotnet-ef
+    ajouter le path
+     export PATH="$PATH:/home/romgui/.dotnet/tools" 
+    faire la migration
+        dotnet ef migrations add InitialCreate -o "./DAL/Migrations"
