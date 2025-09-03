@@ -1,10 +1,14 @@
 <template>
-  coucou
-    <!-- Contenu principal -->
-    <v-main>
-      sdf
-      <router-view class="mt-4 ml-4 mr-4"/>
-    </v-main>
+  <div>
+    <header class="bg-gray-800 text-white p-4">
+      <nav>
+        <router-link to="/register" class="hover:text-gray-300">Create User</router-link>
+      </nav>
+    </header>
+    <main class="p-4">
+      <router-view />
+    </main>
+  </div>
 </template>
 
 <script setup lang="ts">

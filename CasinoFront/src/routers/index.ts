@@ -6,10 +6,25 @@ import {
 
 // Import layout
 import SharedLayout from "@/components/SharedLayout.vue";
+import UserCreate from '@/components/UserCreate.vue';
 
 const routes: Array<RouteRecordRaw> = [
   // Routes avec le layout partagé
-  
+  {
+    path: '/',
+    component: SharedLayout,
+    children: [
+      {
+        path: '',
+        redirect: 'register',
+      },
+      {
+        path: 'register',
+        name: 'Register',
+        component: UserCreate,
+      },
+    ],
+  },
 ];
 
 const router = createRouter({
