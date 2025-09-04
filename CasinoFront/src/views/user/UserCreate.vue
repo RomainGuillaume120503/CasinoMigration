@@ -44,7 +44,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import AuthAPI from '@/api/AuthApi'
-import type { RegisterPayload } from '@/models/Core/RegisterPayload'
+import type { RegisterPayload } from '@/models/RegisterPayload'
 
 const form = reactive<RegisterPayload>({
   userName: '',
@@ -55,9 +55,7 @@ const form = reactive<RegisterPayload>({
 const handleSubmit = async () => {
   try {
     await AuthAPI.register(form)
-    // TODO: Add success notification and redirect
   } catch (error) {
-    // TODO: Add error notification
     console.error('Error creating user:', error)
   }
 }

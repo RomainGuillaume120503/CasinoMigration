@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import App from "@/App.vue";
 import router from "@/routers"; // Import du router
+import '@/style.css'
 // @ts-ignore
 
 import Toast from 'vue-toastification';

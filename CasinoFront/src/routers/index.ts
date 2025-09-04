@@ -1,28 +1,29 @@
+// src/router/index.ts
 import {
   createRouter,
   createWebHistory,
   type RouteRecordRaw,
 } from "vue-router";
 
-// Import layout
-import SharedLayout from "@/components/SharedLayout.vue";
-import UserCreate from '@/components/UserCreate.vue';
+//import adminRoutes from "@/routers/routes/admin";
+import userRoutes from "@/routers/routes/user";
+//import gameRoutes from "@/routers/routes/game";
+
+import MainLayout from "@/components/MainLayout.vue";
 
 const routes: Array<RouteRecordRaw> = [
-  // Routes avec le layout partagé
+  // Une seule route parent qui gère le layout principal
   {
     path: '/',
-    component: SharedLayout,
+    component: MainLayout,
     children: [
       {
         path: '',
-        redirect: 'register',
+        redirect: '/user/register', // Redirection vers le bon chemin
       },
-      {
-        path: 'register',
-        name: 'Register',
-        component: UserCreate,
-      },
+      ...userRoutes,
+      //...gameRoutes,
+      //...adminRoutes,
     ],
   },
 ];
@@ -32,10 +33,8 @@ const router = createRouter({
   routes,
 });
 
-// Gestion d'erreur de navigation
 router.onError((error) => {
   console.error("Routing Error:", error);
-  router.push({ name: "Error", params: { error: error.message || "Erreur inconnue" } });
 });
 
 export default router;
